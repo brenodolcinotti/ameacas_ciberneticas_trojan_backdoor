@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cavalo de Troia (Trojan) - Atlas de Ameaças</title>
+    <link rel="stylesheet" href="../dupla02/style.css">
+</head>
+<body>
+    <header>
+        <h1>Atlas de Ameaças Cibernéticas</h1>
+        <p>TechSecure S.A. - Inteligência de Ameaças</p>
+        <nav>
+            <!-- Link obrigatório para o índice geral -->
+            <a href="../index.html" class="btn-3d">← Voltar ao Índice Geral</a>
+            <a href="trojan.html" class="btn-3d">Trojan</a>
+            <a href="backdoor.html" class="btn-3d">Backdoor</a>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <section>
+                <h2>Cavalo de Troia (Trojan)</h2>
+                <p class="highlight-box"><strong>Frase-resumo:</strong> Um programa malicioso disfarçado de software legítimo, projetado para enganar o usuário e abrir portas para outras ameaças.</p>
+                
+                <h3>O que é?</h3>
+                <p>O Cavalo de Troia (Trojan) é um tipo de malware que se oculta dentro de um arquivo ou programa aparentemente inofensivo. Diferente dos vírus e worms, <strong>ele não se autorreplica</strong>. Seu sucesso depende inteiramente da Engenharia Social, enganando a vítima para que ela mesma execute o arquivo.</p>
+            </section>
+
+            <section>
+                <h3>Histórico e Evolução</h3>
+                <p>O termo vem da mitologia grega, aludindo à tática de esconder invasores dentro de um presente. Ganhou força comercial nos anos 2000, com os *Trojans Bancários* (como o Zeus), focados em roubar credenciais financeiras. Hoje, são frequentemente usados como *Droppers*, entregando Ransomwares ou Backdoors em redes corporativas.</p>
+            </section>
+
+            <section>
+                <h3>Como Funciona e Vetores</h3>
+                <ul>
+                    <li><strong>Vetor de Entrada:</strong> Chega via e-mails de phishing (anexos falsos de notas fiscais), softwares piratas ou atualizações falsas de sistema.</li>
+                    <li><strong>Execução:</strong> O usuário executa o arquivo. O programa promete fazer uma coisa (ex: rodar um jogo ou abrir um PDF), mas executa código malicioso em segundo plano.</li>
+                    <li><strong>Impacto:</strong> Comprometimento severo da <strong>Confidencialidade</strong> (roubo de dados) e da <strong>Integridade</strong> do sistema.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Estudo de Caso: Emotet</h3>
+                <p>Surgido em 2014, o Emotet começou como um Trojan bancário tradicional. Com o tempo, evoluiu para uma infraestrutura de "Malware-as-a-Service" (MaaS). Ele infectava máquinas via documentos de Word com macros maliciosas e, em seguida, alugava o acesso dessa máquina para outros grupos criminosos instalarem Ransomwares (como o Ryuk).</p>
+                
+                <figure>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/5D1V5D3Z5A0" title="CISA - Phishing e Trojans" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <figcaption>Fonte: Cybersecurity and Infrastructure Security Agency (CISA) - Vídeo conceitual sobre vetores de Phishing.</figcaption>
+                </figure>
+            </section>
+
+            <section>
+                <h3>Defesa, Prevenção e Resposta</h3>
+                <ul>
+                    <li><strong>Prevenção:</strong> Desabilitar macros no Microsoft Office; Treinamento contínuo de conscientização contra Phishing; Filtros de e-mail e DNS.</li>
+                    <li><strong>Detecção:</strong> Soluções EDR (Endpoint Detection and Response) para analisar o comportamento de processos filhos criados por arquivos PDF ou Office.</li>
+                    <li><strong>Resposta:</strong> Isolar imediatamente a máquina infectada da rede, identificar as credenciais expostas para troca imediata e buscar artefatos similares em outros computadores.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por Anna Karolina Dantas dos Santos e Breno Dolcinotti | Fontes consultadas: CISA, MITRE ATT&CK (Software), SANS Institute.</p>
+    </footer>
+</body>
+</html>

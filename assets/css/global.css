@@ -1,0 +1,263 @@
+/* assets/css/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap');
+
+:root {
+    --bg-black: #050505;
+    --surface-dark: #111111;
+    --surface-light: #1a1a1a;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --neon-green: #00ff66;
+    --border-color: #2a2a2a;
+    --glow: 0 0 20px rgba(0, 255, 102, 0.15);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-black);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+
+    /* --- EFEITO MATRIX --- */
+    /* A primeira linha (linear-gradient) cria uma máscara escura. 
+       A segunda carrega o GIF animado. */
+    background-image: 
+        linear-gradient(rgba(5, 5, 5, 0.88), rgba(17, 17, 17, 0.95)), 
+        url('../img/numeros_binarios.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Faz o fundo ficar parado enquanto a página rola */
+}
+
+header {
+    background-color: rgba(17, 17, 17, 0.6); /* Um pouco mais escuro para o brilho da fonte destacar */
+    border-bottom: 1px solid var(--border-color);
+    padding: 60px 20px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+header h1 {
+    font-family: 'Orbitron', sans-serif;
+    margin: 0 0 15px 0;
+    color: #ffffff; /* Letra branca para contrastar com o brilho verde */
+    font-size: 3.5em; /* Aumentei um pouco o tamanho */
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /* Efeito de brilho Neon (Glow) hacker */
+    text-shadow: 
+        0 0 5px rgba(0, 255, 102, 0.5),
+        0 0 15px rgba(0, 255, 102, 0.3),
+        0 0 30px rgba(0, 255, 102, 0.2);
+}
+
+header p {
+    font-family: 'Share Tech Mono', monospace; /* Fonte de terminal */
+    color: var(--neon-green);
+    font-size: 1.3em;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* Opcional: Efeito de cursor piscando no final do subtítulo */
+header p::after {
+    content: '|';
+    animation: piscar 1s infinite;
+}
+
+@keyframes piscar {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+main {
+    max-width: 1300px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.intro-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    font-size: 1.15em;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+/* Sistema de Grid Aprimorado */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background-color: var(--surface-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--neon-green);
+    box-shadow: var(--glow);
+    background-color: var(--surface-light);
+}
+
+.card h2 {
+    color: var(--text-main);
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+}
+
+.card h2::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 24px;
+    background-color: var(--neon-green);
+    margin-right: 12px;
+    border-radius: 4px;
+}
+
+.card .comparacao {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    flex-grow: 1;
+}
+
+/* --- ESTILO DOS BOTÕES GLITCH (UI-BTN) --- */
+.ui-btn {
+  --btn-default-bg: rgb(41, 41, 41);
+  --btn-padding: 12px 20px; /* Diminuí um pouco o padding para caber melhor no card */
+  --btn-hover-bg: rgb(51, 51, 51);
+  --btn-transition: .3s;
+  --btn-letter-spacing: .1rem;
+  --btn-animation-duration: 1.2s;
+  --btn-shadow-color: rgba(0, 0, 0, 0.137);
+  --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
+  
+  /* Dica: O seu código original usava amarelo (#FAC921). 
+     Mudei para o Verde Neon para combinar 100% com o tema Matrix! */
+  --hover-btn-color: #00ff66; 
+  
+  --default-btn-color: #fff;
+  --font-size: 14px;
+  --font-weight: 600;
+  --font-family: 'Share Tech Mono', Menlo, Roboto Mono, monospace;
+}
+
+.ui-btn {
+  box-sizing: border-box;
+  padding: var(--btn-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--default-btn-color);
+  font: var(--font-weight) var(--font-size) var(--font-family);
+  background: var(--btn-default-bg);
+  border: 1px solid #2a2a2a; /* Adicionado para dar limite ao botão */
+  border-radius: 6px; /* Bordas arredondadas para combinar com os cards */
+  cursor: pointer;
+  transition: var(--btn-transition);
+  overflow: hidden;
+  box-shadow: var(--btn-shadow);
+  
+  /* Adaptações para funcionar perfeitamente em tags <a> */
+  text-decoration: none;
+  width: 100%; 
+}
+
+.ui-btn span {
+  letter-spacing: var(--btn-letter-spacing);
+  transition: var(--btn-transition);
+  box-sizing: border-box;
+  position: relative;
+  background: inherit;
+}
+
+.ui-btn span::before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  background: inherit;
+}
+
+.ui-btn:hover, .ui-btn:focus {
+  background: var(--btn-hover-bg);
+  border-color: var(--hover-btn-color); /* A borda também acende em verde */
+}
+
+.ui-btn:hover span, .ui-btn:focus span {
+  color: var(--hover-btn-color);
+}
+
+.ui-btn:hover span::before, .ui-btn:focus span::before {
+  animation: chitchat linear both var(--btn-animation-duration);
+}
+
+@keyframes chitchat {
+  0% { content: "#"; }
+  5% { content: "."; }
+  10% { content: "^{"; }
+  15% { content: "-!"; }
+  20% { content: "#$_"; }
+  25% { content: "№:0"; }
+  30% { content: "#{+."; }
+  35% { content: "@}-?"; }
+  40% { content: "?{4@%"; }
+  45% { content: "=.,^!"; }
+  50% { content: "?2@%"; }
+  55% { content: "\;1}]"; }
+  60% { content: "?{%:%"; right: 0; }
+  65% { content: "|{f[4"; right: 0; }
+  70% { content: "{4%0%"; right: 0; }
+  75% { content: "'1_0<"; right: 0; }
+  80% { content: "{0%"; right: 0; }
+  85% { content: "]>'"; right: 0; }
+  90% { content: "4"; right: 0; }
+  95% { content: "2"; right: 0; }
+  100% { content: ""; right: 0; }
+}
+
+/* --- ESPAÇAMENTO DOS BOTÕES --- */
+.links {
+  display: flex;
+  flex-direction: column; /* Coloca um botão embaixo do outro */
+  gap: 18px; /* <--- É ESTA LINHA QUE CRIA O ESPAÇO ENTRE ELES */
+  margin-top: 10px; /* Dá um respiro entre o texto e o primeiro botão */
+}
+
+/* Destaque para a sua dupla */
+.card.highlight {
+    border: 1px solid var(--neon-green);
+    background-color: rgba(0, 255, 102, 0.03);
+}
+
+.card.highlight h2 {
+    color: var(--neon-green);
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    margin-top: 80px;
+    background-color: var(--surface-dark);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.9em;
+}

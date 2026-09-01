@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backdoor - Atlas de Ameaças</title>
+    <link rel="stylesheet" href="../dupla02/style.css">
+</head>
+<body>
+    <header>
+        <h1>Atlas de Ameaças Cibernéticas</h1>
+        <p>TechSecure S.A. - Inteligência de Ameaças</p>
+        <nav>
+            <a href="../index.html" class="btn-3d">← Voltar ao Índice Geral</a>
+            <a href="trojan.html" class="btn-3d">Trojan</a>
+            <a href="backdoor.html" class="btn-3d">Backdoor</a>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <section>
+                <h2>Backdoor</h2>
+                <p class="highlight-box"><strong>Frase-resumo:</strong> Uma porta dos fundos invisível que garante acesso contínuo, persistente e não autorizado a um sistema, ignorando a autenticação padrão.</p>
+                
+                <h3>O que é?</h3>
+                <p>Um backdoor é uma tática ou código inserido em um sistema (de forma intencional por um desenvolvedor ou por invasores após um ataque) que permite acesso remoto clandestino. Ele contorna os métodos formais de segurança, permitindo que o invasor administre o sistema como se fosse um usuário legítimo de alto privilégio.</p>
+            </section>
+
+            <section>
+                <h3>Histórico e Evolução</h3>
+                <p>Nos anos 90, ferramentas como <em>NetBus</em> popularizaram o acesso remoto não autorizado. A evolução levou aos ataques modernos de <strong>Cadeia de Suprimentos (Supply Chain)</strong>. Hoje, grupos estatais (APTs) implantam backdoors silenciosos diretamente no código-fonte de softwares de código aberto utilizados globalmente.</p>
+            </section>
+
+            <section>
+                <h3>Como Funciona e Vetores</h3>
+                <ul>
+                    <li><strong>Acesso Inicial:</strong> Geralmente, um backdoor não entra sozinho. Ele é <em>entregue</em> através de um <strong>Trojan</strong> ou por invasões de servidores vulneráveis voltados para a web.</li>
+                    <li><strong>Persistência:</strong> Modifica agendadores de tarefas (cron/Windows Task) para garantir que o malware reinicie sempre que o servidor for religado.</li>
+                    <li><strong>Comunicação (C2):</strong> Cria uma conexão reversa de dentro da rede da empresa para o servidor do atacante, burlando firewalls que costumam bloquear apenas conexões de entrada.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Estudo de Caso: O Incidente XZ Utils (2024)</h3>
+                <p>Em março de 2024, um backdoor quase invisível foi descoberto na biblioteca de compressão <code>XZ Utils</code>, amplamente usada em sistemas Linux. Um invasor, usando engenharia social ao longo de dois anos, tornou-se mantenedor do código aberto e inseriu uma falha no protocolo OpenSSH. Se não fosse descoberto acidentalmente por um engenheiro da Microsoft devido a uma lentidão de milissegundos, criminosos teriam acesso administrativo (root) a milhões de servidores globalmente, sem precisar de senhas.</p>
+            </section>
+
+            <section>
+                <h3>Defesa, Prevenção e Resposta</h3>
+                <ul>
+                    <li><strong>Prevenção:</strong> Arquitetura de Confiança Zero (Zero Trust), uso rigoroso de MFA (Autenticação Multifator) e auditoria rigorosa de softwares e dependências de terceiros.</li>
+                    <li><strong>Detecção:</strong> Monitoramento de Integridade de Arquivos (FIM) e análise de tráfego de rede buscando conexões atípicas saindo da rede interna (beaconing).</li>
+                    <li><strong>Resposta:</strong> Segmentação da rede para cortar a comunicação com o servidor C2, análise forense para medir o tempo de permanência do atacante e restauração via backups não comprometidos (Clean Backups).</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por Anna Karolina Dantas dos Santos e Breno Dolcinotti | Fontes consultadas: NIST CSRC, SANS Institute, MITRE ATT&CK (Persistence).</p>
+    </footer>
+</body>
+</html>
