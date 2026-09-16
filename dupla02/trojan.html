@@ -5,8 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cavalo de Troia (Trojan) - Atlas de Ameaças</title>
     <link rel="stylesheet" href="../dupla02/style.css">
+    <style>
+        /* Canvas do fundo animado: fica atrás de tudo, fixo na tela */
+        #matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #000;
+        }
+
+        /* Garante que o conteúdo continue legível por cima do fundo */
+        body {
+            position: relative;
+        }
+
+        /* Cartão para as ilustrações SVG, com fundo escuro fixo
+           para garantir contraste independente do restante do CSS do site */
+        .icon-card {
+            background: rgba(10, 10, 10, 0.75);
+            border: 1px solid #39FF14;
+            border-radius: 10px;
+            padding: 1.2rem;
+            max-width: 220px;
+            margin: 1.5rem auto;
+            text-align: center;
+        }
+
+        .icon-card svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 0.6rem auto;
+        }
+
+        .icon-card figcaption {
+            color: #d7d7d7;
+            font-size: 0.85rem;
+        }
+    </style>
 </head>
 <body>
+    <!-- Canvas onde o código animado é desenhado -->
+    <canvas id="matrix-bg"></canvas>
+
     <header>
         <h1>Atlas de Ameaças Cibernéticas</h1>
         <p>TechSecure S.A. - Inteligência de Ameaças</p>
@@ -26,6 +70,30 @@
                 
                 <h3>O que é?</h3>
                 <p>O Cavalo de Troia (Trojan) é um tipo de malware que se oculta dentro de um arquivo ou programa aparentemente inofensivo. Diferente dos vírus e worms, <strong>ele não se autorreplica</strong>. Seu sucesso depende inteiramente da Engenharia Social, enganando a vítima para que ela mesma execute o arquivo.</p>
+
+                <figure class="icon-card">
+                    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titulo-icone-cavalo">
+                        <title id="titulo-icone-cavalo">Ilustração de um cavalo de madeira com um crânio, representando o malware escondido dentro do presente</title>
+                        <!-- corpo do cavalo -->
+                        <ellipse cx="100" cy="85" rx="55" ry="30" fill="none" stroke="#39FF14" stroke-width="3"/>
+                        <!-- pescoço e cabeça -->
+                        <path d="M60 70 L40 25 L75 45 Z" fill="none" stroke="#39FF14" stroke-width="3" stroke-linejoin="round"/>
+                        <!-- orelha -->
+                        <path d="M46 33 L40 20 L54 30" fill="none" stroke="#39FF14" stroke-width="2"/>
+                        <!-- pernas -->
+                        <line x1="65" y1="112" x2="60" y2="140" stroke="#39FF14" stroke-width="3"/>
+                        <line x1="135" y1="112" x2="140" y2="140" stroke="#39FF14" stroke-width="3"/>
+                        <!-- rodas (referência ao cavalo de Troia como "presente") -->
+                        <circle cx="60" cy="146" r="8" fill="none" stroke="#39FF14" stroke-width="2"/>
+                        <circle cx="140" cy="146" r="8" fill="none" stroke="#39FF14" stroke-width="2"/>
+                        <!-- crânio pequeno no corpo, indicando o malware escondido -->
+                        <circle cx="100" cy="85" r="12" fill="#39FF14"/>
+                        <circle cx="95" cy="83" r="2.2" fill="#0a0a0a"/>
+                        <circle cx="105" cy="83" r="2.2" fill="#0a0a0a"/>
+                        <path d="M97 90 L103 90" stroke="#0a0a0a" stroke-width="1.5"/>
+                    </svg>
+                    <figcaption>O malware se esconde dentro de um "presente" digital aparentemente inofensivo.</figcaption>
+                </figure>
             </section>
 
             <section>
@@ -40,6 +108,20 @@
                     <li><strong>Execução:</strong> O usuário executa o arquivo. O programa promete fazer uma coisa (ex: rodar um jogo ou abrir um PDF), mas executa código malicioso em segundo plano.</li>
                     <li><strong>Impacto:</strong> Comprometimento severo da <strong>Confidencialidade</strong> (roubo de dados) e da <strong>Integridade</strong> do sistema.</li>
                 </ul>
+
+                <figure class="icon-card">
+                    <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titulo-icone-phishing">
+                        <title id="titulo-icone-phishing">Ilustração de um envelope de e-mail com um alerta de phishing</title>
+                        <!-- envelope -->
+                        <rect x="30" y="35" width="140" height="90" rx="6" fill="none" stroke="#39FF14" stroke-width="3"/>
+                        <path d="M30 40 L100 95 L170 40" fill="none" stroke="#39FF14" stroke-width="3" stroke-linejoin="round"/>
+                        <!-- alerta -->
+                        <circle cx="150" cy="35" r="22" fill="#0a0a0a" stroke="#39FF14" stroke-width="3"/>
+                        <line x1="150" y1="24" x2="150" y2="38" stroke="#39FF14" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="150" cy="46" r="2.2" fill="#39FF14"/>
+                    </svg>
+                    <figcaption>Phishing: o principal vetor de entrada de um Trojan.</figcaption>
+                </figure>
             </section>
 
             <section>
@@ -47,8 +129,8 @@
                 <p>Surgido em 2014, o Emotet começou como um Trojan bancário tradicional. Com o tempo, evoluiu para uma infraestrutura de "Malware-as-a-Service" (MaaS). Ele infectava máquinas via documentos de Word com macros maliciosas e, em seguida, alugava o acesso dessa máquina para outros grupos criminosos instalarem Ransomwares (como o Ryuk).</p>
                 
                 <figure>
-                    <iframe width="560" height="315" src="https://youtu.be/UXUIMyr026s?si=co0cnnzZmzRVd52L" title="A família de malware Emotet explicada em Pi minutos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <figcaption>Fonte: Cybersecurity and Infrastructure Security Agency (CISA) - Vídeo conceitual sobre vetores de Phishing.</figcaption>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/UXUIMyr026s" title="A família de malware Emotet explicada em Pi minutos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <figcaption>Fonte: Leet Cipher (YouTube, 2023) — vídeo "The Emotet Malware Family Explained in Pi minutes".</figcaption>
                 </figure>
             </section>
 
@@ -59,6 +141,15 @@
                     <li><strong>Detecção:</strong> Soluções EDR (Endpoint Detection and Response) para analisar o comportamento de processos filhos criados por arquivos PDF ou Office.</li>
                     <li><strong>Resposta:</strong> Isolar imediatamente a máquina infectada da rede, identificar as credenciais expostas para troca imediata e buscar artefatos similares em outros computadores.</li>
                 </ul>
+
+                <figure class="icon-card">
+                    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titulo-icone-escudo">
+                        <title id="titulo-icone-escudo">Ilustração de um escudo com marca de verificação, representando as defesas de segurança</title>
+                        <path d="M100 15 L165 40 L165 90 C165 125 135 145 100 155 C65 145 35 125 35 90 L35 40 Z" fill="none" stroke="#39FF14" stroke-width="3" stroke-linejoin="round"/>
+                        <path d="M70 85 L92 108 L132 62" fill="none" stroke="#39FF14" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <figcaption>Boas práticas de defesa reduzem a superfície de ataque contra Trojans.</figcaption>
+                </figure>
             </section>
         </article>
     </main>
@@ -66,5 +157,46 @@
     <footer>
         <p>Desenvolvido por Anna Karolina Dantas dos Santos e Breno Dolcinotti | Fontes consultadas: CISA, MITRE ATT&CK (Software), SANS Institute.</p>
     </footer>
+
+    <script>
+        // Animação de "chuva de código" estilo Matrix, desenhada no canvas de fundo
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
+
+        function ajustarTamanho() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        ajustarTamanho();
+        window.addEventListener('resize', ajustarTamanho);
+
+        // Caracteres usados na chuva (letras, números e símbolos comuns em código)
+        const caracteres = '01{}[]<>/;=+-*&%$#@ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const tamanhoFonte = 16;
+        let colunas = Math.floor(canvas.width / tamanhoFonte);
+        let gotas = new Array(colunas).fill(1);
+
+        function desenhar() {
+            // Camada semitransparente para criar o rastro que desaparece aos poucos
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#39FF14'; // verde estilo terminal
+            ctx.font = tamanhoFonte + 'px monospace';
+
+            for (let i = 0; i < gotas.length; i++) {
+                const caractere = caracteres[Math.floor(Math.random() * caracteres.length)];
+                ctx.fillText(caractere, i * tamanhoFonte, gotas[i] * tamanhoFonte);
+
+                // Reinicia a gota no topo aleatoriamente, depois que passa da tela
+                if (gotas[i] * tamanhoFonte > canvas.height && Math.random() > 0.975) {
+                    gotas[i] = 0;
+                }
+                gotas[i]++;
+            }
+        }
+
+        setInterval(desenhar, 40);
+    </script>
 </body>
 </html>

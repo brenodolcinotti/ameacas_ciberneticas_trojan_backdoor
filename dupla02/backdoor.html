@@ -5,8 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backdoor - Atlas de Ameaças</title>
     <link rel="stylesheet" href="../dupla02/style.css">
+    <style>
+        /* Canvas do fundo animado: fica atrás de tudo, fixo na tela */
+        #matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #000;
+        }
+
+        /* Garante que o conteúdo continue legível por cima do fundo */
+        body {
+            position: relative;
+        }
+
+        /* Cartão para as ilustrações SVG, com fundo escuro fixo
+           para garantir contraste independente do restante do CSS do site */
+        .icon-card {
+            background: rgba(10, 10, 10, 0.75);
+            border: 1px solid #39FF14;
+            border-radius: 10px;
+            padding: 1.2rem;
+            max-width: 220px;
+            margin: 1.5rem auto;
+            text-align: center;
+        }
+
+        .icon-card svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 0.6rem auto;
+        }
+
+        .icon-card figcaption {
+            color: #d7d7d7;
+            font-size: 0.85rem;
+        }
+    </style>
 </head>
 <body>
+    <!-- Canvas onde o código animado é desenhado -->
+    <canvas id="matrix-bg"></canvas>
+
     <header>
         <h1>Atlas de Ameaças Cibernéticas</h1>
         <p>TechSecure S.A. - Inteligência de Ameaças</p>
@@ -25,6 +69,21 @@
                 
                 <h3>O que é?</h3>
                 <p>Um backdoor é uma tática ou código inserido em um sistema (de forma intencional por um desenvolvedor ou por invasores após um ataque) que permite acesso remoto clandestino. Ele contorna os métodos formais de segurança, permitindo que o invasor administre o sistema como se fosse um usuário legítimo de alto privilégio.</p>
+
+                <figure class="icon-card">
+                    <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titulo-icone-cadeado">
+                        <title id="titulo-icone-cadeado">Ilustração de um cadeado com uma porta escondida atrás, representando o acesso oculto de um backdoor</title>
+                        <!-- porta escondida ao fundo -->
+                        <rect x="120" y="55" width="45" height="90" rx="3" fill="none" stroke="#39FF14" stroke-width="2" opacity="0.55"/>
+                        <circle cx="128" cy="100" r="2.5" fill="#39FF14" opacity="0.55"/>
+                        <!-- cadeado em primeiro plano -->
+                        <path d="M55 85 L55 65 C55 45 70 32 90 32 C110 32 125 45 125 65 L125 85" fill="none" stroke="#39FF14" stroke-width="6"/>
+                        <rect x="40" y="85" width="100" height="70" rx="8" fill="#0a0a0a" stroke="#39FF14" stroke-width="4"/>
+                        <circle cx="90" cy="112" r="8" fill="#39FF14"/>
+                        <line x1="90" y1="118" x2="90" y2="132" stroke="#39FF14" stroke-width="5" stroke-linecap="round"/>
+                    </svg>
+                    <figcaption>O acesso remoto fica escondido "atrás" da segurança visível do sistema.</figcaption>
+                </figure>
             </section>
 
             <section>
@@ -39,6 +98,31 @@
                     <li><strong>Persistência:</strong> Modifica agendadores de tarefas (cron/Windows Task) para garantir que o malware reinicie sempre que o servidor for religado.</li>
                     <li><strong>Comunicação (C2):</strong> Cria uma conexão reversa de dentro da rede da empresa para o servidor do atacante, burlando firewalls que costumam bloquear apenas conexões de entrada.</li>
                 </ul>
+
+                <figure class="icon-card">
+                    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titulo-icone-c2">
+                        <title id="titulo-icone-c2">Ilustração de um servidor dentro de uma rede corporativa enviando uma conexão reversa para um servidor externo do atacante</title>
+                        <!-- servidor interno (vítima) -->
+                        <rect x="20" y="45" width="55" height="50" rx="4" fill="none" stroke="#39FF14" stroke-width="3"/>
+                        <line x1="30" y1="58" x2="65" y2="58" stroke="#39FF14" stroke-width="2"/>
+                        <line x1="30" y1="68" x2="65" y2="68" stroke="#39FF14" stroke-width="2"/>
+                        <line x1="30" y1="78" x2="65" y2="78" stroke="#39FF14" stroke-width="2"/>
+                        <!-- firewall -->
+                        <rect x="100" y="30" width="6" height="80" fill="#39FF14" opacity="0.5"/>
+                        <!-- servidor do atacante -->
+                        <rect x="145" y="45" width="55" height="50" rx="4" fill="none" stroke="#39FF14" stroke-width="3"/>
+                        <circle cx="172" cy="70" r="10" fill="#39FF14"/>
+                        <path d="M167 65 L177 75 M177 65 L167 75" stroke="#0a0a0a" stroke-width="2"/>
+                        <!-- seta da conexão reversa saindo de dentro para fora -->
+                        <path d="M78 70 L140 70" fill="none" stroke="#39FF14" stroke-width="3" marker-end="url(#seta)"/>
+                        <defs>
+                            <marker id="seta" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+                                <path d="M0,0 L6,3 L0,6 Z" fill="#39FF14"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                    <figcaption>Conexão reversa: o tráfego sai de dentro da rede, driblando o firewall.</figcaption>
+                </figure>
             </section>
 
             <section>
@@ -53,6 +137,18 @@
                     <li><strong>Detecção:</strong> Monitoramento de Integridade de Arquivos (FIM) e análise de tráfego de rede buscando conexões atípicas saindo da rede interna (beaconing).</li>
                     <li><strong>Resposta:</strong> Segmentação da rede para cortar a comunicação com o servidor C2, análise forense para medir o tempo de permanência do atacante e restauração via backups não comprometidos (Clean Backups).</li>
                 </ul>
+
+                <figure class="icon-card">
+                    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titulo-icone-zerotrust">
+                        <title id="titulo-icone-zerotrust">Ilustração de um escudo com uma impressão digital, representando a arquitetura de confiança zero</title>
+                        <path d="M100 15 L165 40 L165 90 C165 125 135 145 100 155 C65 145 35 125 35 90 L35 40 Z" fill="none" stroke="#39FF14" stroke-width="3" stroke-linejoin="round"/>
+                        <path d="M100 55 C82 55 68 69 68 87 C68 105 78 118 90 128" fill="none" stroke="#39FF14" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M100 65 C88 65 78 76 78 88 C78 100 84 108 92 115" fill="none" stroke="#39FF14" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M100 75 C93 75 88 81 88 88 C88 95 91 100 96 104" fill="none" stroke="#39FF14" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M114 60 C124 68 130 78 130 90 C130 104 122 116 110 124" fill="none" stroke="#39FF14" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                    <figcaption>Confiança Zero: nenhum acesso é assumido como legítimo por padrão.</figcaption>
+                </figure>
             </section>
         </article>
     </main>
@@ -60,5 +156,46 @@
     <footer>
         <p>Desenvolvido por Anna Karolina Dantas dos Santos e Breno Dolcinotti | Fontes consultadas: NIST CSRC, SANS Institute, MITRE ATT&CK (Persistence).</p>
     </footer>
+
+    <script>
+        // Animação de "chuva de código" estilo Matrix, desenhada no canvas de fundo
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
+
+        function ajustarTamanho() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        ajustarTamanho();
+        window.addEventListener('resize', ajustarTamanho);
+
+        // Caracteres usados na chuva (letras, números e símbolos comuns em código)
+        const caracteres = '01{}[]<>/;=+-*&%$#@ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const tamanhoFonte = 16;
+        let colunas = Math.floor(canvas.width / tamanhoFonte);
+        let gotas = new Array(colunas).fill(1);
+
+        function desenhar() {
+            // Camada semitransparente para criar o rastro que desaparece aos poucos
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#39FF14'; // verde estilo terminal
+            ctx.font = tamanhoFonte + 'px monospace';
+
+            for (let i = 0; i < gotas.length; i++) {
+                const caractere = caracteres[Math.floor(Math.random() * caracteres.length)];
+                ctx.fillText(caractere, i * tamanhoFonte, gotas[i] * tamanhoFonte);
+
+                // Reinicia a gota no topo aleatoriamente, depois que passa da tela
+                if (gotas[i] * tamanhoFonte > canvas.height && Math.random() > 0.975) {
+                    gotas[i] = 0;
+                }
+                gotas[i]++;
+            }
+        }
+
+        setInterval(desenhar, 40);
+    </script>
 </body>
 </html>
