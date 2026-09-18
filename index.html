@@ -4,222 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atlas de Ameaças Cibernéticas - TechSecure S.A.</title>
-    <!-- Referência para o CSS Global -->
     <link rel="stylesheet" href="assets/css/global.css">
 </head>
 <body>
-    <header>
-        <h1>Atlas de Ameaças Cibernéticas</h1>
-        <p>TechSecure S.A. | Programa de Conscientização e Resposta a Incidentes</p>
+
+    <!-- CABEÇALHO PRESERVADO -->
+    <header class="cyber-header">
+        <div class="glitch-wrapper">
+            <h1 class="glitch" data-text="ATLAS DE AMEAÇAS CIBERNÉTICAS">ATLAS DE AMEAÇAS CIBERNÉTICAS</h1>
+        </div>
+        <p class="subtitle">TechSecure S.A. - Programa Interno de Conscientização e Resposta a Incidentes</p>
+        <p class="description">Portal técnico e educacional contendo análises de malwares, mecanismos de infecção e estratégias de prevenção.</p>
     </header>
 
-    <main>
-        <div class="intro-text">
-            <p>Bem-vindo ao Atlas de Ameaças Cibernéticas. Este portal educacional foi desenvolvido pela equipe de <strong>Cyber Threat Intelligence</strong> para catalogar, explicar e defender nossa organização contra as principais categorias de malware e ataques.</p>
-        </div>
+    <!-- ÁREA PRINCIPAL: FOCO TOTAL NA DUPLA 02 -->
+    <main class="container">
+        <section class="dashboard-panel">
+            <div class="badge-dupla">
+                <span class="pulse-dot"></span> EQUIPE CTI: DUPLA 02
+            </div>
+            
+            <h2 class="panel-title">Vetores de Infiltração e Persistência</h2>
+            <p class="panel-subtitle">Análise Comparativa: Disfarce/Entrega vs. Acesso Persistente</p>
 
-        <div class="grid-container">
-            <!-- Dupla 01 -->
-            <div class="card">
-                <h2>Dupla 01</h2>
-                <p class="comparacao">Hospedeiro x Autorreplicação e propagação</p>
-                <div class="links">
-                    <a href="dupla01/virus.html" class="ui-btn">
-                        <span>Vírus</span>
-                    </a>
-                    <a href="dupla01/worm.html" class="ui-btn">
-                        <span>Worm</span>
-                    </a>
+            <div class="cards-grid">
+                <!-- CARD TROJAN -->
+                <div class="cyber-card">
+                    <div class="card-icon">
+                        <img src="https://img.icons8.com/color/96/000000/trojan-horse.png" alt="Ícone Trojan">
+                    </div>
+                    <h3>Cavalo de Troia (Trojan)</h3>
+                    <p class="card-text">Malware disfarçado de software legítimo. Utiliza engenharia social para enganar o usuário, garantindo a entrega e execução de cargas maliciosas no sistema alvo.</p>
+                    <div class="card-action">
+                        <!-- Botão Glitch Animado -->
+                        <a href="dupla02/trojan.html" class="ui-btn">
+                            <span>Acessar Relatório</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD BACKDOOR -->
+                <div class="cyber-card">
+                    <div class="card-icon">
+                        <img src="https://img.icons8.com/color/96/000000/door-opened.png" alt="Ícone Backdoor">
+                    </div>
+                    <h3>Backdoor</h3>
+                    <p class="card-text">Mecanismo furtivo que ignora a autenticação padrão. Focado em garantir acesso remoto contínuo e indetectável ao invasor após a infecção inicial.</p>
+                    <div class="card-action">
+                        <!-- Botão Glitch Animado -->
+                        <a href="dupla02/backdoor.html" class="ui-btn">
+                            <span>Acessar Relatório</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-
-            <!-- Dupla 02 -->
-            <div class="card highlight">
-                <h2>Dupla 02</h2>
-                <p class="comparacao">Disfarce/entrega x Acesso persistente</p>
-                <div class="links">
-                    <a href="dupla02/trojan.html" class="ui-btn">
-                        <span>Cavalo de Troia (Trojan)</span>
-                    </a>
-                    <a href="dupla02/backdoor.html" class="ui-btn">
-                        <span>Backdoor</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dupla 03 -->
-            <div class="card">
-                <h2>Dupla 03</h2>
-                <p class="comparacao">Extorsão x Destruição de dados</p>
-                <div class="links">
-                    <a href="dupla03/ransomware.html" class="ui-btn">
-                        <span>Ransomware</span>
-                    </a>
-                    <a href="dupla03/wiper.html" class="ui-btn">
-                        <span>Wiper</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dupla 04 -->
-            <div class="card">
-                <h2>Dupla 04</h2>
-                <p class="comparacao">Espionagem x Captura de digitação</p>
-                <div class="links">
-                    <a href="dupla04/spyware.html" class="ui-btn">
-                        <span>Spyware</span>
-                    </a>
-                    <a href="dupla04/keylogger.html" class="ui-btn">
-                        <span>Keylogger</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dupla 05 -->
-            <div class="card">
-                <h2>Dupla 05</h2>
-                <p class="comparacao">Publicidade abusiva x Manipulação do navegador</p>
-                <div class="links">
-                    <a href="dupla05/adware.html" class="ui-btn">
-                        <span>Adware Malicioso</span>
-                    </a>
-                    <a href="dupla05/browser-hijacker.html" class="ui-btn">
-                        <span>Browser Hijacker</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dupla 06 -->
-            <div class="card">
-                <h2>Dupla 06</h2>
-                <p class="comparacao">Ocultação x Comprometimento da inicialização</p>
-                <div class="links">
-                    <a href="dupla06/rootkit.html" class="ui-btn">
-                        <span>Rootkit</span>
-                    </a>
-                    <a href="dupla06/bootkit.html" class="ui-btn">
-                        <span>Bootkit</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dupla 07 -->
-            <div class="card">
-                <h2>Dupla 07</h2>
-                <p class="comparacao">Condição lógica x Gatilho temporal</p>
-                <div class="links">
-                    <a href="dupla07/bomba-logica.html" class="ui-btn">
-                        <span>Bomba Lógica</span>
-                    </a>
-                    <a href="dupla07/time-bomb.html" class="ui-btn">
-                        <span>Time Bomb</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dupla 08 -->
-            <div class="card">
-                <h2>Dupla 08</h2>
-                <p class="comparacao">Host comprometido x Rede coordenada</p>
-                <div class="links">
-                    <a href="dupla08/bot.html" class="ui-btn">
-                        <span>Bot</span>
-                    </a>
-                    <a href="dupla08/botnet.html" class="ui-btn">
-                        <span>Botnet</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dupla 09 -->
-            <div class="card">
-                <h2>Dupla 09</h2>
-                <p class="comparacao">Controle remoto x Roubo de informações</p>
-                <div class="links">
-                    <a href="dupla09/rat.html" class="ui-btn">
-                        <span>RAT (Remote Access)</span>
-                    </a>
-                    <a href="dupla09/infostealer.html" class="ui-btn">
-                        <span>Infostealer</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dupla 10 -->
-            <div class="card">
-                <h2>Dupla 10</h2>
-                <p class="comparacao">Execução em memória x Abuso de ferramentas</p>
-                <div class="links">
-                    <a href="dupla10/fileless.html" class="ui-btn">
-                        <span>Malware Fileless</span>
-                    </a>
-                    <a href="dupla10/lotl.html" class="ui-btn">
-                        <span>LotL (Living off the Land)</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dupla 11 -->
-            <div class="card">
-                <h2>Dupla 11</h2>
-                <p class="comparacao">Macros x Documentos como vetor</p>
-                <div class="links">
-                    <a href="dupla11/macrovirus.html" class="ui-btn">
-                        <span>Macrovírus</span>
-                    </a>
-                    <a href="dupla11/malware-doc.html" class="ui-btn">
-                        <span>Malware em Documentos</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dupla 12 -->
-            <div class="card">
-                <h2>Dupla 12</h2>
-                <p class="comparacao">Engenharia social x Falso software de segurança</p>
-                <div class="links">
-                    <a href="dupla12/scareware.html" class="ui-btn">
-                        <span>Scareware</span>
-                    </a>
-                    <a href="dupla12/rogue.html" class="ui-btn">
-                        <span>Rogue Security</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dupla 13 -->
-            <div class="card">
-                <h2>Dupla 13</h2>
-                <p class="comparacao">Uso clandestino x Software de mineração</p>
-                <div class="links">
-                    <a href="dupla13/cryptojacking.html" class="ui-btn">
-                        <span>Cryptojacking</span>
-                    </a>
-                    <a href="dupla13/cryptominer.html" class="ui-btn">
-                        <span>Cryptominer Malicioso</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dupla 14 -->
-            <div class="card">
-                <h2>Dupla 14</h2>
-                <p class="comparacao">Mutação de código para evasão</p>
-                <div class="links">
-                    <a href="dupla14/polimorfico.html" class="ui-btn">
-                        <span>Malware Polimórfico</span>
-                    </a>
-                    <a href="dupla14/metamorfico.html" class="ui-btn">
-                        <span>Malware Metamórfico</span>
-                    </a>
-                </div>
-            </div>
-        </div>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 TechSecure S.A. | Todos os direitos reservados.</p>
-        <p>Projeto de Situação de Aprendizagem - Unidade Curricular de Cibersegurança.</p>
+    <!-- RODAPÉ PRESERVADO -->
+    <footer class="cyber-footer">
+        <p>Desenvolvido pela Equipe de Cyber Threat Intelligence | Dupla 02</p>
+        <p>Análise e Desenvolvimento de Sistemas (ADS) - SENAI | Cibersegurança</p>
     </footer>
+
 </body>
 </html>
